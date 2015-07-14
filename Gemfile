@@ -27,6 +27,8 @@ gem 'rails-i18n'
 
 gem "therubyracer", :platforms => :ruby
 
+gem 'acts-as-taggable-on'
+
 group :development, :test do
   gem 'erb2haml'
   gem 'powder'

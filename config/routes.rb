@@ -3,5 +3,6 @@ Rails.application.routes.draw do
   ActiveAdmin.routes(self)
   namespace :api do
     resources :phrases
+    resources :tags
   end
 end

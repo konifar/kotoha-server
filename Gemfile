@@ -35,6 +35,7 @@ gem 'chosen-rails', git: 'git://github.com/qpowell/chosen-rails.git'
 gem 'font-awesome-rails'
 gem 'select2-rails'
 gem 'tagsinput-rails'
+gem 'rails4-autocomplete'
 
 group :development, :test do
   gem 'erb2haml'

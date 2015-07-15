@@ -9,6 +9,16 @@ ActiveAdmin.register Phrase do
     actions
   end
 
+  show do
+    attributes_table do
+      row :text
+      row :tag_list
+      row :created_at
+      row :updated_at
+    end
+    active_admin_comments
+  end
+
   form do |f|
     f.inputs do
       f.input :text
@@ -16,8 +26,9 @@ ActiveAdmin.register Phrase do
         label: "Tags",
         input_html: {
           data: {
-            saved: f.object.tags.map{|t| {id: t.name, name: t.name}}.to_json
+            saved: f.object.tags.map{|t| {name: t.name}}.to_json
           },
+          value: f.object.tags.map{|t| t.name}.join(","),
           class: 'tag-input'
       }
     end

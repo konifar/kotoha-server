@@ -16,6 +16,8 @@ gem 'jquery-rails'
 gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.0'
+# Pagenation
+gem 'kaminari'
 # NewRelic
 gem 'newrelic_rpm'
 # Haml
@@ -28,6 +30,10 @@ gem 'rails-i18n'
 gem "therubyracer", :platforms => :ruby
 
 gem 'acts-as-taggable-on'
+
+gem 'compass-rails', branch: "rails4"
+gem 'chosen-rails'
+gem 'font-awesome-rails'
 
 group :development, :test do
   gem 'erb2haml'

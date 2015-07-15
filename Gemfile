@@ -31,8 +31,7 @@ gem "therubyracer", :platforms => :ruby
 
 gem 'acts-as-taggable-on'
 
-gem 'compass-rails', branch: "rails4"
-gem 'chosen-rails'
+gem 'chosen-rails', git: 'git://github.com/qpowell/chosen-rails.git'
 gem 'font-awesome-rails'
 
 group :development, :test do

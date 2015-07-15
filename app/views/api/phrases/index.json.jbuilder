@@ -1,1 +1,1 @@
-json.partial! "phrases", collection: @phrases, as: :phrase
+json.partial! "phrase", collection: @phrases, as: :phrase

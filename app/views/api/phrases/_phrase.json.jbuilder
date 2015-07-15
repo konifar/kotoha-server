@@ -1,1 +1,1 @@
-json.(phrase, :id, :text, :created_at)
+json.(phrase, :id, :text)

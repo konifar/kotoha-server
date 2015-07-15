@@ -4,8 +4,13 @@ class Api::PhrasesController < ApplicationController
   end
 
   def index
-    page = params[:page] ? params[:page] : 1
-    text = params[:text] ? params[:text] : ''
-    @phrases = Phrase.where('text LIKE ?', "%#{text}%").page(page)
+    if params[:tag]
+      @phrases = Phrase.tagged_with params['tag'], any: true, wild: true
+    else
+      text = params[:text] ? params[:text] : ''
+      @phrases = Phrase.where('text LIKE ?', "%#{text}%").limit(20)
+    end
+
+    @phrases.order(:text).limit(20)
   end
 end

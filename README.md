@@ -20,5 +20,8 @@ $ heroku addons:add cleardb:ignite
 $ heroku config | grep CLEARDB_DATABASE_URL
 # => CLEARDB_DATABASE_URL:        mysql://xxxx
 $ heroku config:set  DATABASE_URL='mysql2 xxx' --app kotoha-server
+# Deploy
 $ git push heroku master
+# Migrate
+$ heroku run rake db:migrate
 ```

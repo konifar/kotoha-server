@@ -24,4 +24,6 @@ $ heroku config:set  DATABASE_URL='mysql2 xxx' --app kotoha-server
 $ git push heroku master
 # Migrate
 $ heroku run rake db:migrate
+# Open page
+$ heroku open
 ```

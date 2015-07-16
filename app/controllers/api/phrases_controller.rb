@@ -1,4 +1,6 @@
 class Api::PhrasesController < ApplicationController
+  protect_from_forgery :except => [:create]
+
   def phrase_params
     params.require(:phrase).permit(:text, :tag_list)
   end

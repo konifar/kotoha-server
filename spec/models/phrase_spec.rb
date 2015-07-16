@@ -22,11 +22,19 @@ RSpec.describe Phrase, type: :model do
   describe '.tag_list' do
     subject do
       phrase = Phrase.new text: 'Well done sir!'
-      phrase.tag_list = 'lgtm'
+      phrase.tag_list = tag_list
       phrase.save
       phrase
     end
-    specify{ expect(subject.tag_list).to eq ['lgtm'] }
-    specify{ expect{ subject }.to change(ActsAsTaggableOn::Tag, :count).from(0).to(1) }
+    context 'when there is one tag' do
+      let(:tag_list){ 'lgtm' }
+      specify{ expect(subject.tag_list).to eq ['lgtm'] }
+      specify{ expect{ subject }.to change(ActsAsTaggableOn::Tag, :count).from(0).to(1) }
+    end
+    context 'when there is one tag' do
+      let(:tag_list){ 'lgtm, code' }
+      specify{ expect(subject.tag_list).to eq ['lgtm', 'code'] }
+      specify{ expect{ subject }.to change(ActsAsTaggableOn::Tag, :count).from(0).to(2) }
+    end
   end
 end

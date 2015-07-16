@@ -13,4 +13,18 @@ class Api::PhrasesController < ApplicationController
 
     @phrases.order(:text).limit(20)
   end
+
+  def create
+    @phrase = Phrase.new text: params[:text]
+    if params[:tag_list]
+      @phrase.tag_list = params[:tag_list]
+    end
+
+    if @phrase.save
+      render action: 'show'
+    else
+      @error_message = @phrase.errors.full_messages.to_sentence
+      render template: 'api/error', status: :unprocessable_entity
+    end
+  end
 end

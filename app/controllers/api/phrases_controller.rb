@@ -7,13 +7,13 @@ class Api::PhrasesController < ApplicationController
 
   def index
     if params[:tag]
-      @phrases = Phrase.tagged_with params['tag'], any: true, wild: true
+      @phrases = Phrase.tagged_with(params['tag'], any: true, wild: true).limit(50)
     else
       text = params[:text] ? params[:text] : ''
       @phrases = Phrase.where('text LIKE ?', "%#{text}%").limit(20)
     end
 
-    @phrases.order(:text).limit(20)
+    @phrases.order(:text)
   end
 
   def create

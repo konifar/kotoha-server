@@ -24,6 +24,8 @@ describe 'PhrasesController', type: :request do
         json = JSON.parse response.body
         expect(json.first["id"]).to eq phrase.id
         expect(json.first["text"]).to eq phrase.text
+        p json.first["tag_list"]
+        expect(json.first["tag_list"][0]).to eq 'lgtm'
       end
 
       context 'when passed text is not contained in phrase' do

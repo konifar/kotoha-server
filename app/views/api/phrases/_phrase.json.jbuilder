@@ -1,1 +1,1 @@
-json.(phrase, :id, :text)
+json.(phrase, :id, :text, :tag_list)

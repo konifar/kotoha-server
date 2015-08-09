@@ -13,7 +13,7 @@ class Api::PhrasesController < ApplicationController
       @phrases = Phrase.where('text LIKE ?', "%#{text}%").limit(20)
     end
 
-    @phrases.order(:text)
+    @phrases.includes(:tags).order(:text)
   end
 
   def create
